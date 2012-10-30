@@ -4,12 +4,19 @@ knockoutjs-presentation
 This is a presentation on KnockoutJS given on Oct 29, 2012. This project contains the pdf which will dicuss:
 
 ● Review the Observer pattern
+
 ● Introduction to the MVVM pattern
+
 ● Introduction to Knockout
+
 ● Observables/Observable arrays
+
 ● Default Bindings
+
 ● Custom bindings
+
 ● Using the mapping plug-in
+
 ● Common pitfalls/Gotchas
 
 
