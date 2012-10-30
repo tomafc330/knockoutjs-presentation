@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="js/knockout-2.1.0.js"></script>
+</head>
+	<body>
+		<button data-bind="text: firstName">Scary Tommy</button>
+	</body>
+	<script type="text/javascript">
+	    function MyViewModel() {
+		firstName = ko.observable("Terrifying Tommy");
+		
+	    };
+
+	    ko.applyBindings(new MyViewModel());
+	</script>
+</html>
+
+
+

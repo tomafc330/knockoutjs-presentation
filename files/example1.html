@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="js/knockout-2.1.0.js"></script>
+</head>
+	<body>
+	<p>Choose your costume: 
+		<select data-bind="options: availableCostumes, optionsCaption: 'Choose one...', value: selectedCostume"></select>
+	</p>
+	<div data-bind="with: selectedCostume">
+		On Halloween this year, I will be a <span data-bind="text: $root.makeScaryCostume"></span>.
+	</div>
+	</body>
+	<script type="text/javascript">
+	    function CostumeViewModel() {
+		var self = this;
+		self.selectedCostume = ko.observable();
+		self.availableCostumes = ko.observableArray(['Pirate', 'Ghost', 'Banana']);
+	    	self.makeScaryCostume = ko.computed(function() {
+	       		return "very scary " + self.selectedCostume();
+	    	});
+	    };
+	model = new CostumeViewModel();
+	ko.applyBindings(model);
+	</script>
+</html>
+
+
+

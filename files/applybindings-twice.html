@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="js/knockout-2.1.0.js"></script>
+</head>
+	<body>
+		<button data-bind="click: doClick">Click me </button>
+	</body>
+	<script type="text/javascript">
+	    function MyViewModel() {
+		var self = this;
+		self.doClick = function() {
+			alert('clicked');
+		}
+	    };
+	model = new MyViewModel();
+	ko.applyBindings(model);
+	ko.applyBindings(model);
+	</script>
+</html>
+
+
+

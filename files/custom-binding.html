@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.9.0.custom.min.js"></script>
+	<script type="text/javascript" src="js/knockout-2.1.0.js"></script>
+	<link rel="stylesheet" href="css/jquery-ui-1.9.0.custom.min.css"></script>
+</head>
+	<body>
+		<div style="width: 33%; margin: 10%">
+			<p>A test slider with dropdown sync</p>
+			<div data-bind="percentageSlider: interval"></div>
+			<p>The input maps to the same model property</p>
+			<input data-bind="value: interval"/>
+		</div>
+	</body>
+	<script type="text/javascript">
+	ko.bindingHandlers.percentageSlider = {
+    		init: function (element, valueAccessor) {
+       			$(element).slider();
+			$(element).on('slidechange', function(event) {
+				var observable = valueAccessor();
+				observable($(element).slider('value'));
+			});
+       			ko.utils.registerEventHandler(element, 'slide', function (event, ui) {
+            			var observable = valueAccessor();
+            			observable(ui.value);
+        		});
+    		},
+    		update: function (element, valueAccessor) {
+        		var value = ko.utils.unwrapObservable(valueAccessor());
+        		$(element).slider("value", value);
+    		}
+	};
+
+		
+	function MyViewModel() {
+		var self = this;
+		self.interval = ko.observable(2); //start at 2
+	}
+
+	ko.applyBindings(new MyViewModel());
+	</script>
+</html>
+
+
+
